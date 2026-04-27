@@ -1,3 +1,4 @@
+import { UsersList } from "./components/ListUsers";
 import { useGetUsers } from "./hooks/useGetUsers"
 
 export function ListUsers() {
@@ -14,7 +15,7 @@ export function ListUsers() {
 
             {isPending ? 'CARREGANDO...' : (
                 <div className="flex flex-col space-y-7">
-                    LISTA DE USUÁRIOS DENTRO DE PAGES
+                    <UsersList usersList={dashboardData}  />
                 </div>
             )}
         </div>

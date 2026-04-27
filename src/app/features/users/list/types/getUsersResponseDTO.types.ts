@@ -17,7 +17,7 @@ export interface CompanyDTO {
     bs: string;
 }
 
-export interface UserDTO {
+export interface UserListResponseDTO {
     id: number;
     name: string;
     username: string;
