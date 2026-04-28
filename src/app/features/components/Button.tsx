@@ -1,12 +1,13 @@
 import { variantStyles } from "./const";
 
-export type ButtonVariant = "default" | "alert" | "error" | "success";
+export type ButtonVariant = "default" | "alert" | "error" | "success" | "disabled";
 
 export type ButtonProps = {
     label?: string;
     handleClick: () => void;
     icon?: React.ElementType;
     variant?: ButtonVariant;
+    disabled?: boolean
 };
 
 
@@ -16,10 +17,12 @@ export function Button({
     handleClick,
     icon: Icon,
     variant = "default",
+    disabled = false
 }: ButtonProps) {
+    
     return (
         <button
-            onClick={handleClick}
+            onClick={disabled ? () => { } : handleClick}
             className={`
         flex items-center gap-2
         text-white
@@ -27,7 +30,7 @@ export function Button({
         px-4 py-2 rounded-lg
         text-sm font-medium
         transition
-        ${variantStyles[variant]}
+        ${variantStyles[variant]}        
       `}
         >
             {Icon && <Icon size={16} className="shrink-0" />}

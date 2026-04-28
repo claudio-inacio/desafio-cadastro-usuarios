@@ -16,7 +16,7 @@ export function AppLayout() {
                 title={routeIsDefault ? "Lista de Usuários" : "Cadastro de Usuário"}
                 description={routeIsDefault ? "Gerencie os usuários da aplicação" : "Registre novos usuários"}
                 action={
-                    <Button label={routeIsDefault ? 'Novo Usuário' : 'Voltar para lista'} handleClick={routeIsDefault ? () => navigate("/novo-usuario") : () => navigate("/")} />
+                    <Button disabled={true} label={routeIsDefault ? 'Novo Usuário' : 'Voltar para lista'} handleClick={routeIsDefault ? () => navigate("/novo-usuario") : () => navigate("/")} />
                 }
             />
             <main className="p-6">
