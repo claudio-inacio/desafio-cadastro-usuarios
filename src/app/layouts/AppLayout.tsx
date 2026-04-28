@@ -10,16 +10,20 @@ export function AppLayout() {
     const location = useLocation();
     const routeIsDefault = location.pathname === "/"
 
+    function redirectCreateUser() {
+        sessionStorage.setItem("canAccessCreateUser", "true");
+        navigate("/novo-usuario");
+    }
     return (
-        <div style={{minWidth: '400px'}} className="mih-h-screen bg-bakcground text-foreground">
+        <div style={{ minWidth: '350px' }} className="mih-h-screen bg-bakcground text-foreground">
             <ListHeader
                 title={routeIsDefault ? "Lista de Usuários" : "Cadastro de Usuário"}
                 description={routeIsDefault ? "Gerencie os usuários da aplicação" : "Registre novos usuários"}
                 action={
-                    <Button disabled={true} label={routeIsDefault ? 'Novo Usuário' : 'Voltar para lista'} handleClick={routeIsDefault ? () => navigate("/novo-usuario") : () => navigate("/")} />
+                    <Button label={routeIsDefault ? 'Novo Usuário' : 'Voltar para lista'} handleClick={routeIsDefault ? () => redirectCreateUser() : () => navigate("/")} />
                 }
             />
-            <main className="p-6">
+            <main className="lg:p-6 p-2">
                 <Outlet />
             </main>
         </div>

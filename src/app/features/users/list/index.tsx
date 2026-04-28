@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UsersList } from "./components/ListUsers";
 import { useGetUsers } from "./hooks/useGetUsers"
 import { ConfirmDeleteUser } from "../delete/components/ConfirmDeleteUser";
@@ -23,7 +23,7 @@ export function ListUsers() {
     } = useGetUsers();
     const {
         isPending: isPendingDeleteUser,
-        isError: isErrorDeletetUser, 
+        isError: isErrorDeletetUser,
         mutateAsync,
     } = useDeleteUser();
 
@@ -53,6 +53,9 @@ export function ListUsers() {
         setHasClosedErrorModal(false);
         refetch();
     }
+    useEffect(() => {
+        sessionStorage.removeItem("canAccessCreateUser");
+    }, []);
 
 
     return (

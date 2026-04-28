@@ -28,15 +28,17 @@ export function Error({
                 </p>
                 <div className="flex justify-end space-x-2 mt-10">
                     <Button
+                        type="button"
                         handleClick={() => handleCancel()}
                         variant="error"
                         label="Fechar"
                     />
                     {handleAction && (
                         <Button
-                            handleClick={() => handleAction()}
-                            variant="default"
-                            label={actionMessage}
+                        type="button"
+                        handleClick={() => handleAction()}
+                        variant="default"
+                        label={actionMessage}
                         />
                     )}
                 </div>

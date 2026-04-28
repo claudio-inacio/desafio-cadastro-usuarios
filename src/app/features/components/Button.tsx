@@ -1,13 +1,15 @@
 import { variantStyles } from "./const";
 
 export type ButtonVariant = "default" | "alert" | "error" | "success" | "disabled";
+export type ButtonType = "button" | "submit";
 
 export type ButtonProps = {
-    label?: string;
+    label?: string | React.ReactElement;
     handleClick: () => void;
     icon?: React.ElementType;
     variant?: ButtonVariant;
-    disabled?: boolean
+    disabled?: boolean;
+    type: ButtonType;
 };
 
 
@@ -17,9 +19,10 @@ export function Button({
     handleClick,
     icon: Icon,
     variant = "default",
-    disabled = false
+    disabled = false,
+    type = "button"
 }: ButtonProps) {
-    
+
     return (
         <button
             onClick={disabled ? () => { } : handleClick}
@@ -32,6 +35,7 @@ export function Button({
         transition
         ${variantStyles[variant]}        
       `}
+            type={type}
         >
             {Icon && <Icon size={16} className="shrink-0" />}
             {label}
