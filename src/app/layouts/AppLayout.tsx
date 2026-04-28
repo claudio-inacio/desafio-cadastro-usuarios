@@ -4,13 +4,14 @@ import { Button } from "../features/components/button";
 
 
 
+
 export function AppLayout() {
     const navigate = useNavigate();
     const location = useLocation();
     const routeIsDefault = location.pathname === "/"
 
     return (
-        <div className="mih-h-screen bg-bakcground text-foreground">
+        <div style={{minWidth: '400px'}} className="mih-h-screen bg-bakcground text-foreground">
             <ListHeader
                 title={routeIsDefault ? "Lista de Usuários" : "Cadastro de Usuário"}
                 description={routeIsDefault ? "Gerencie os usuários da aplicação" : "Registre novos usuários"}

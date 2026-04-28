@@ -3,9 +3,6 @@ import { UserItemDetails } from "./UserItemDetails";
 import { UserItemActions } from "./UserItemActions";
 
 
-
-
-
 type UserItemProps = {
     user: UserViewModel
 }
@@ -20,7 +17,7 @@ export function UserItem({ user }: UserItemProps) {
         return { data }
     }
     return (
-        <div className="flex items-center justify-between rounded-2xl border border-border/60 bg-background/70 p-4 transition-all hover:shadow-sm">
+        <div className="flex  items-start lg:items-center justify-between rounded-2xl border border-border/60  p-4 transition-all hover:shadow-sm">
             <UserItemDetails user={user} />
             <UserItemActions user={user} handleDelet={handleDelet} handleEdit={handleEdit} />
         </div>

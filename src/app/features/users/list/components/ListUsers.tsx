@@ -1,16 +1,23 @@
 
+import { DontResultset } from "../../../../../shared/components/dont-resultset/DontResultset"
+import LoaderComponent from "../../../../../shared/components/loader/LoaderComponent"
 import type { UserListViewModel } from "../types/UserListViewModel"
 import type { UserViewModel } from "../types/UserViewModel"
 import { UserItem } from "./UserItem"
 
 type UsersListProps = {
     usersList: UserListViewModel
+    isLoading: boolean
 }
 
-export function UsersList({ usersList }: UsersListProps) {
-    if (!usersList.data.length) {
-        // return <DontResultSetTransactions />
-        return <>SEM PRODUTO POR ENQUANTO</>
+export function UsersList({ usersList, isLoading }: UsersListProps) {
+
+    if(isLoading){
+        return <LoaderComponent messageLoader="Carregando lista..." title="Usuários" />
+    }
+
+    if (!usersList || !usersList.data.length) {
+        return <DontResultset title="Usuários não encontrados" description="Não encontramos nenhum usário para a listagem informada!" />        
     }
 
     return (
