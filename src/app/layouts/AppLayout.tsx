@@ -9,9 +9,8 @@ export function AppLayout() {
     const { userId } = useParams();
     const updateOrCreateTitle = userId ? "Alteração de Usuário" : "Cadastro de Usuário"
     const updateOrCreateDescription = userId ? "Altere as informações necessarias" : "Registre novos usuários"
-    const notFoundHeaderTitle = location.key === 'default' ? "Pgina Invalida" : updateOrCreateTitle;
-    const notFoundHeaederDiscription = location.key === 'default' ? "Esta rota não existe ou esta em construção" : updateOrCreateDescription;
-    console.log({location})
+    const notFoundHeaderTitle = location.key === 'default' ? "Página Inválida" : updateOrCreateTitle;
+    const notFoundHeaederDiscription = location.key === 'default' ? "Esta pagina não existe ou esta em construção" : updateOrCreateDescription;
     function redirectCreateUser() {
         sessionStorage.setItem("canAccessCreateUser", "true");
         navigate("/novo-usuario");
