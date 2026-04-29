@@ -3,7 +3,7 @@ import { Button } from "../../../app/features/components/button";
 type ErrorProps = {
     title: string;
     message: string;
-    handleCancel: () => void;
+    handleCancel?: () => void;
     handleAction?: () => void;
     actionMessage?: string;
     cancelMessage?: string;
@@ -29,18 +29,21 @@ export function Error({
                     {message}
                 </p>
                 <div className="flex justify-end space-x-2 mt-10">
-                    <Button
-                        type="button"
-                        handleClick={() => handleCancel()}
-                        variant="error"
-                        label={cancelMessage}
-                    />
+                    {handleCancel && (
+
+                        <Button
+                            type="button"
+                            handleClick={() => handleCancel()}
+                            variant="error"
+                            label={cancelMessage}
+                        />
+                    )}
                     {handleAction && (
                         <Button
-                        type="button"
-                        handleClick={() => handleAction()}
-                        variant="default"
-                        label={actionMessage}
+                            type="button"
+                            handleClick={() => handleAction()}
+                            variant="default"
+                            label={actionMessage}
                         />
                     )}
                 </div>

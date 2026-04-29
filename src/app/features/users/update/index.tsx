@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router";
+import { Navigate, useParams } from "react-router";
 import { mapUpdateUserPayload } from "./mapers/mapUpdateUserPayload";
 import { DefaultModal } from "../../../../shared/components/modal/DefaultModal";
 import { Error } from "../../../../shared/components/error/Error";
@@ -13,8 +13,7 @@ import type { createUserFormOutput } from "../register/schemas/create-user-form.
 
 export function UpdateUser() {
     const [resetForm, setResetForm] = useState(false);
-    const [hasClosedErrorModal, setHasClosedErrorModal] = useState(false);
-    const navigate = useNavigate();
+    const [hasClosedErrorModal, setHasClosedErrorModal] = useState(false);    
     const [canAccess] = useState(() => {
         return sessionStorage.getItem("canAccessUpdateUser") === "true";
     });
@@ -52,8 +51,7 @@ export function UpdateUser() {
         return (
             <div className="w-full flex justify-center">
 
-                <Error
-                    handleCancel={() => navigate('/')}
+                <Error                   
                     message="Não foi possivel encontrar o usuário informado... Volte para a lista e tente novamente!"
                     title="Usuário não encontrado!" cancelMessage="Ver Lista" />
             </div>

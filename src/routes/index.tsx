@@ -3,6 +3,7 @@ import { AppLayout } from "../app/layouts/AppLayout";
 import { ListUsers } from "../app/features/users/list";
 import { RegisterUser } from "../app/features/users/register";
 import { UpdateUser } from "../app/features/users/update";
+import { NotFound } from "../shared/components/not-found";
 
 
 
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <>PÁGINA NÃO ENCONTRADA</>,
+                element: <NotFound />,
             },
         ]
     },
