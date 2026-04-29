@@ -1,4 +1,4 @@
-import { Button } from "../../../app/features/components/button";
+import { Button } from "../button/Button";
 
 type ErrorProps = {
     title: string;

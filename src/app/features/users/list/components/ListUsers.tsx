@@ -7,12 +7,14 @@ import type { UserViewModel } from "../types/UserViewModel"
 import { UserItem } from "./UserItem"
 
 type UsersListProps = {
-    usersList: UserListViewModel
+    usersList: UserListViewModel | undefined
     isLoading: boolean
     handleOpenDeleteModal: (user: SelectedUser) => void;
 }
 
+
 export function UsersList({ usersList, isLoading, handleOpenDeleteModal }: UsersListProps) {
+    
 
     if (isLoading) {
         return <LoaderComponent messageLoader="Carregando lista..." title="Usuários" />

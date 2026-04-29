@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { ListHeader } from "../features/users/list/components/ListHeader";
-import { Button } from "../features/components/button";
+import { Button } from "../../shared/components/button/Button";
 
 
 

@@ -1,4 +1,5 @@
-import type { ButtonVariant } from "../button";
+import type { ButtonVariant } from "../Button";
+
 
 export const variantStyles: Record<ButtonVariant, string> = {
     disabled: "cursor-default bg-gray-300 hover:bg-gray-300",

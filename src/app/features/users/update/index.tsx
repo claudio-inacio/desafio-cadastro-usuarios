@@ -33,6 +33,7 @@ export function UpdateUser() {
     const handleUpdateUser = async (formData: createUserFormOutput) => {
         setResetForm(true);
         if (!formData) return;
+        if(!user) return alert('selecione um usuário');
         const payloadMaped = mapUpdateUserPayload({ ...formData, id: user.id })
         await mutateAsync(payloadMaped, {
             onSuccess: () => {
@@ -59,7 +60,7 @@ export function UpdateUser() {
     }
     return (
         <>
-            <CreateUserForm resetForm={resetForm} defaultValues={mapUpdateUserToForm(user)} handleFormSubmit={handleUpdateUser} isPending={isPending} />
+            <CreateUserForm resetForm={resetForm} _defaultValues={mapUpdateUserToForm(user)} handleFormSubmit={handleUpdateUser} isPending={isPending} />
             <DefaultModal isOpen={isErrorModalOpen} onClose={() => setHasClosedErrorModal(true)}>
                 <Error handleCancel={() => setHasClosedErrorModal(true)}
                     message="Não foi possível cadastrar o usuário... Confira as informações, ou tente novamente mais tarde!"

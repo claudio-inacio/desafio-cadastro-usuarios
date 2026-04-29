@@ -1,5 +1,6 @@
 
-import type { UserListResponseDTO } from "../types/getUsersResponseDTO.types";
+
+import type { UserListResponseDTO } from "../types/UserListResponseDTO.types";
 import type { UserListViewModel } from "../types/UserListViewModel";
 import { mapUsersToViewModel } from "./mapUsersToViewModel";
 

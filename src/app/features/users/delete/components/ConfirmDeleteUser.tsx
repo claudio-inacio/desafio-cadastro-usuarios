@@ -1,5 +1,5 @@
 import { Error } from "../../../../../shared/components/error/Error";
-import { Button } from "../../../components/button";
+import { Button } from "../../../../../shared/components/button/Button";
 
 type ConfirmDeleteUserProps = {
     isError: boolean;

@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form";
 import { Loader2, User, UserRoundCog, Mail, Smartphone, Building2 } from "lucide-react";
-import { Button } from "../../../components/button";
+import { Button } from "../../../../../shared/components/button/Button";
 import InputText from "../../../../../shared/components/inputs/text-input";
 import { createUserFormSchema, type createUserFormInput, type createUserFormOutput, type CreateUserFormValues } from "../schemas/create-user-form.schema";
 import { createUserDefaultValues } from "../config/CreateUser.defaultValues";
@@ -14,10 +14,10 @@ interface CreateUserFormProps {
     handleFormSubmit: (formData: createUserFormOutput) => void;
     isPending: boolean;
     resetForm: boolean;
-    defaultValues: createUserFormInput;
+    _defaultValues?: createUserFormInput;
 }
 
-export function CreateUserForm({ handleFormSubmit, isPending, resetForm, defaultValues }: CreateUserFormProps) {
+export function CreateUserForm({ handleFormSubmit, isPending, resetForm, _defaultValues }: CreateUserFormProps) {
 
     const {
         handleSubmit,
@@ -26,7 +26,7 @@ export function CreateUserForm({ handleFormSubmit, isPending, resetForm, default
         formState: { errors, isValid, isDirty },
     } = useForm<CreateUserFormValues>({
         resolver: zodResolver(createUserFormSchema()),
-        defaultValues: defaultValues || createUserDefaultValues,
+        defaultValues: _defaultValues || createUserDefaultValues,
         mode: 'onChange'
     });
     const buttonIsDisabled = isPending || !isDirty || !isValid
@@ -112,10 +112,10 @@ export function CreateUserForm({ handleFormSubmit, isPending, resetForm, default
                     type="submit" disabled={buttonIsDisabled} label={isPending ? (
                         <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            {defaultValues ? 'Alterando...' : 'Cadastrando...'}
+                            {_defaultValues ? 'Alterando...' : 'Cadastrando...'}
                         </>
                     ) : (
-                        defaultValues ? "Alterar" : "Cadastrar"
+                        _defaultValues ? "Alterar" : "Cadastrar"
                     )} />
             </div>
 

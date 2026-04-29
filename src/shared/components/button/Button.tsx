@@ -9,7 +9,7 @@ export type ButtonProps = {
     icon?: React.ElementType;
     variant?: ButtonVariant;
     disabled?: boolean;
-    type: ButtonType;
+    type?: ButtonType;
 };
 
 

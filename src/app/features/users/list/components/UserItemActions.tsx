@@ -1,6 +1,6 @@
 import type { UserViewModel } from "../types/UserViewModel"
 import { SquarePen, Trash } from 'lucide-react';
-import { Button } from "../../../components/button";
+import { Button } from "../../../../../shared/components/button/Button";
 import type { SelectedUser } from "..";
 
 

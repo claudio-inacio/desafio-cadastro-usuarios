@@ -1,5 +1,5 @@
 
-import type { UserListResponseDTO } from "../types/getUsersResponseDTO.types";
+import type { UserListResponseDTO } from "../types/UserListResponseDTO.types";
 import type { UserViewModel } from "../types/UserViewModel";
 
 export function mapUsersToViewModel(

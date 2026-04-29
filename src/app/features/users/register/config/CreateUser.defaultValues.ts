@@ -1,9 +1,10 @@
-import type { createUserFormFormInput } from "../schemas/create-user-form.schema";
+import type { createUserFormInput } from "../schemas/create-user-form.schema";
 
 
-export const createUserDefaultValues: createUserFormFormInput = {
+
+export const createUserDefaultValues: createUserFormInput = {
     name: '',
-    username: '',
+    user_name: '',
     email: '',
     phone: '',
     city: '',
