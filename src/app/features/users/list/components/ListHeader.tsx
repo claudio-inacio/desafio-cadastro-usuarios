@@ -6,7 +6,7 @@ type ListHeaderProps = {
 
 export function ListHeader({ title, description, action }: ListHeaderProps) {
     return (
-        <div className="flex items-center py-10 justify-around border-b border-zinc-200 pb-4 mb-6">
+        <header className="flex items-center py-10 justify-around border-b border-zinc-200 pb-4 mb-6">
             <div>
                 <h1 className="text-2xl font-semibold text-zinc-800">
                     {title}
@@ -19,7 +19,7 @@ export function ListHeader({ title, description, action }: ListHeaderProps) {
                 )}
             </div>
 
-            {action && <div>{action}</div>}
-        </div>
+            {action && <nav>{action}</nav>}
+        </header>
     );
 }
