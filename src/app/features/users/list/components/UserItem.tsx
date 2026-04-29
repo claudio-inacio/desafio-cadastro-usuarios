@@ -14,7 +14,7 @@ export function UserItem({ user, handleOpenDeleteModal }: UserItemProps) {
     const navigate = useNavigate();
 
     function handleEdit(data: UserViewModel) {
-        if(data.id > 10){return alert('Infelizmente a API ainda não permite editar os usuários que inserimos... tente editar um usuário pré-existente')}
+        if (data.id > 10) { return alert('Infelizmente a API ainda não permite editar os usuários que inserimos... tente editar um usuário pré-existente') }
         sessionStorage.setItem("canAccessUpdateUser", "true");
         navigate(`/editar-usuario/${data.id}`);
     }
