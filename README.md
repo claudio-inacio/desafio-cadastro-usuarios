@@ -1,23 +1,23 @@
 ## EXCUTANDO PROJETO LOCAL ##
-1. Baixar o projeto
+1. Baixar o projeto =>
 git clone https://github.com/claudio-inacio/desafio-cadastro-usuarios
-2. Navegar até a pasta
+2. Navegar até a pasta =>
 cd desafio-cadastro-usuarios
-3. Instalar dependencias
+3. Instalar dependencias =>
 npm install
-4. Executar projeto desenvolvimento
+4. Executar projeto desenvolvimento =>
 npm run dev
 
 ## EXECUTANDO PROJETO COM DOCKER ##
-1. Baixar o projeto
+1. Baixar o projeto => 
 git clone https://github.com/claudio-inacio/desafio-cadastro-usuarios
-2. Navegar até a pasta
+2. Navegar até a pasta => 
 cd desafio-cadastro-usuarios
-3. Instalar dependencias
+3. Instalar dependencias => 
 npm install
-4. Build e upload da imagem
+4. Build e upload da imagem => 
 docker compose up --build
-6. Acessar Navegador
+6. Acessar Navegador => 
 http://localhost:8080
 
 ## ARQUITETURA ##

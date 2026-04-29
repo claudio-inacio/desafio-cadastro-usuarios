@@ -2,7 +2,7 @@
 export function NotFound() {
 
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center gap-6">
+        <div className="w-full h-full flex flex-col items-center justify-center gap-6">
             <h1 className="text-4xl font-bold text-gray-800">
                 404
             </h1>
