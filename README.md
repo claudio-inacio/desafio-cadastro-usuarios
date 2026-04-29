@@ -1,3 +1,15 @@
+## DESCRIÇÃO ##
+Aplicação front-end que consiste em uma lista de usuários que nos permite:
+ - Alterar um usuário ja pré-existente na lista padrão
+ - Excluir qualquer usuário da nossa lista
+ - Cadastrar novos usuários
+
+ ## DEPLOY ##
+ 1. Repositorio =>  https://github.com/claudio-inacio/desafio-cadastro-usuarios
+ 2. Link de acesso do projeto => https://desafio-cadastro-usuarios-eight.vercel.app/
+
+
+
 ## EXCUTANDO PROJETO LOCAL ##
 1. Baixar o projeto =>
 git clone https://github.com/claudio-inacio/desafio-cadastro-usuarios
