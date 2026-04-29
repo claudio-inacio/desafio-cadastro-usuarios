@@ -1,5 +1,6 @@
 
-import type { createUserFormOutput } from "../schemas/create-user-form.schema";
+
+import type { createUserFormOutput } from "../../register/schemas/create-user-form.schema";
 import type { UpdateUserPayload } from "../types/UpdateUserPayload.type";
 
 type UpdateUserFormData = createUserFormOutput & {
