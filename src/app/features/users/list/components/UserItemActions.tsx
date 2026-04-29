@@ -14,8 +14,8 @@ export function UserItemActions({ user, handleEdit, handleDelete }: UserItemActi
 
     return (
         <div className="flex items-center gap-1 -ml-16 lg:ml-0">
-            <Button variant="alert" icon={SquarePen} label="" handleClick={() => handleEdit(user)} />
-            <Button variant="error" icon={Trash} label="" handleClick={() => handleDelete({ id: user.id, name: user.name })} />
+            <Button type="button" variant="alert" icon={SquarePen} label="" handleClick={() => handleEdit(user)} />
+            <Button type="button" variant="error" icon={Trash} label="" handleClick={() => handleDelete({ id: user.id, name: user.name })} />
         </div>
     )
 }

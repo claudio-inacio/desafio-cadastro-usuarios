@@ -12,6 +12,6 @@ export function mapUsersToViewModel(
         email: dto.email,
         phone_number: dto.phone,
         city: dto.address.city,
-        zip_code: dto.address.zipcode,
+    
     }
 }

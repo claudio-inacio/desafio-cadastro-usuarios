@@ -6,6 +6,7 @@ type ErrorProps = {
     handleCancel: () => void;
     handleAction?: () => void;
     actionMessage?: string;
+    cancelMessage?: string;
 };
 
 export function Error({
@@ -14,6 +15,7 @@ export function Error({
     handleCancel,
     handleAction,
     actionMessage,
+    cancelMessage = 'Fechar'
 }: ErrorProps) {
 
     return (
@@ -31,7 +33,7 @@ export function Error({
                         type="button"
                         handleClick={() => handleCancel()}
                         variant="error"
-                        label="Fechar"
+                        label={cancelMessage}
                     />
                     {handleAction && (
                         <Button

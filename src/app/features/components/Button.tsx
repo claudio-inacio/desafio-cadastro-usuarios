@@ -5,7 +5,7 @@ export type ButtonType = "button" | "submit";
 
 export type ButtonProps = {
     label?: string | React.ReactElement;
-    handleClick: () => void;
+    handleClick?: () => void;
     icon?: React.ElementType;
     variant?: ButtonVariant;
     disabled?: boolean;
@@ -22,10 +22,10 @@ export function Button({
     disabled = false,
     type = "button"
 }: ButtonProps) {
-
     return (
         <button
-            onClick={disabled ? () => { } : handleClick}
+            disabled={disabled}
+            onClick={handleClick}
             className={`
         flex items-center gap-2
         text-white

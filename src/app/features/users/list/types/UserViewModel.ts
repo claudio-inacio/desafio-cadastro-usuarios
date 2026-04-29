@@ -5,5 +5,5 @@ export interface UserViewModel {
     email: string;
     phone_number: string;
     city: string;
-    zip_code: string;
+    
 }

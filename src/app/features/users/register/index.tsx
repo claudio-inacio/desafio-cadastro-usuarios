@@ -7,6 +7,7 @@ import type { createUserFormOutput } from "./schemas/create-user-form.schema";
 import { DefaultModal } from "../../../../shared/components/modal/DefaultModal";
 import { Error } from "../../../../shared/components/error/Error";
 
+
 export function RegisterUser() {
     const [resetForm, setResetForm] = useState(false);
     const [hasClosedErrorModal, setHasClosedErrorModal] = useState(false);
@@ -19,7 +20,8 @@ export function RegisterUser() {
         mutateAsync,
     } = useCreateUser();
     const isErrorModalOpen = isError && !hasClosedErrorModal;
-    
+
+
     const handleCreateUser = async (formData: createUserFormOutput) => {
         setResetForm(true);
         if (!formData) return;
@@ -30,6 +32,7 @@ export function RegisterUser() {
             },
         });
     }
+
     useEffect(() => {
         sessionStorage.removeItem("canAccessCreateUser");
     }, []);

@@ -1,8 +1,5 @@
-
-// import StringMasks from "@/shared/utils/StringMasks";
-
 import { z } from "zod";
-import StringMasks from "../../../../../utils/StringMasks";
+
 
 export const createUserFormSchema = () =>
     z.object({
@@ -21,10 +18,8 @@ export const createUserFormSchema = () =>
         email: z
             .email('Informe um e-mail valido'),
         phone: z
-            .string()
-            .refine((value) => StringMasks.phoneIsValid(value), {
-                message: "Informe um telefone válido",
-            }),
+            .string().min(8, "Informe um usuário valido")
+
 
     });
 

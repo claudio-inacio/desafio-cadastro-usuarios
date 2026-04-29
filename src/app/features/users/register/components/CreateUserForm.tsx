@@ -14,22 +14,22 @@ interface CreateUserFormProps {
     handleFormSubmit: (formData: createUserFormOutput) => void;
     isPending: boolean;
     resetForm: boolean;
-    defaultValues?: createUserFormInput
+    defaultValues: createUserFormInput;
 }
 
 export function CreateUserForm({ handleFormSubmit, isPending, resetForm, defaultValues }: CreateUserFormProps) {
-
 
     const {
         handleSubmit,
         control,
         reset,
-        formState: { errors, isValid },
+        formState: { errors, isValid, isDirty },
     } = useForm<CreateUserFormValues>({
         resolver: zodResolver(createUserFormSchema()),
         defaultValues: defaultValues || createUserDefaultValues,
         mode: 'onChange'
     });
+    const buttonIsDisabled = isPending || !isDirty || !isValid
 
     useEffect(() => {
         if (resetForm) {
@@ -39,7 +39,7 @@ export function CreateUserForm({ handleFormSubmit, isPending, resetForm, default
 
     return (
         <form
-            onSubmit={handleSubmit(handleFormSubmit)}            
+            onSubmit={handleSubmit(handleFormSubmit)}
             className="space-y-4 bg-gray-100 lg:w-1/3 p-2 w-full m-auto rounded-lg"
         >
 
@@ -107,14 +107,16 @@ export function CreateUserForm({ handleFormSubmit, isPending, resetForm, default
 
             <div className=" flex justify-end">
 
-                <Button handleClick={() => { }} variant={isPending || !isValid ? "disabled" : "success"} type="submit" disabled={isPending || !isValid} label={isPending ? (
-                    <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Cadastrando...
-                    </>
-                ) : (
-                    "Cadastrar"
-                )} />
+                <Button
+                    variant={buttonIsDisabled ? "disabled" : "success"}
+                    type="submit" disabled={buttonIsDisabled} label={isPending ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            {defaultValues ? 'Alterando...' : 'Cadastrando...'}
+                        </>
+                    ) : (
+                        defaultValues ? "Alterar" : "Cadastrar"
+                    )} />
             </div>
 
         </form>

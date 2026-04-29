@@ -1,18 +1,18 @@
 
 import type { UserViewModel } from "../../list/types/UserViewModel";
-import type { CreateUserPayload } from "../types/CreateUserPayload.type";
+import type { UpdateUserPayload } from "../types/UpdateUserPayload.type";
 
 
-export function mapCreateUserToViewModel(
-    payload: CreateUserPayload
+export function mapUpdateUserToViewModel(
+    payload: UpdateUserPayload
 ): UserViewModel {
     return {
-        id: Math.floor(Math.random() * 100) + 1,
+        id: payload.id,
         name: payload.name,
         user_name: payload.username,
         email: payload.email,
         phone_number: payload.phone,
         city: payload.address.city,
-        
+
     }
 }
