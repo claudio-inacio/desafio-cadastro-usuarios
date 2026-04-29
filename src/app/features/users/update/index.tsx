@@ -12,8 +12,7 @@ import type { createUserFormOutput } from "../register/schemas/create-user-form.
 
 
 export function UpdateUser() {
-    const [resetForm, setResetForm] = useState(false);
-    const [hasClosedErrorModal, setHasClosedErrorModal] = useState(false);    
+    const [hasClosedErrorModal, setHasClosedErrorModal] = useState(false);
     const [canAccess] = useState(() => {
         return sessionStorage.getItem("canAccessUpdateUser") === "true";
     });
@@ -31,15 +30,10 @@ export function UpdateUser() {
         ?.data.find((u) => u.id === Number(userId));
 
     const handleUpdateUser = async (formData: createUserFormOutput) => {
-        setResetForm(true);
         if (!formData) return;
-        if(!user) return alert('selecione um usuário');
+        if (!user) return alert('selecione um usuário');
         const payloadMaped = mapUpdateUserPayload({ ...formData, id: user.id })
-        await mutateAsync(payloadMaped, {
-            onSuccess: () => {
-                setResetForm(true);
-            },
-        });
+        await mutateAsync(payloadMaped);
     }
     useEffect(() => {
         sessionStorage.removeItem("canAccessUpdateUser");
@@ -52,7 +46,7 @@ export function UpdateUser() {
         return (
             <div className="w-full flex justify-center">
 
-                <Error                   
+                <Error
                     message="Não foi possivel encontrar o usuário informado... Volte para a lista e tente novamente!"
                     title="Usuário não encontrado!" cancelMessage="Ver Lista" />
             </div>
@@ -60,7 +54,7 @@ export function UpdateUser() {
     }
     return (
         <>
-            <CreateUserForm resetForm={resetForm} _defaultValues={mapUpdateUserToForm(user)} handleFormSubmit={handleUpdateUser} isPending={isPending} />
+            <CreateUserForm resetForm={false} _defaultValues={mapUpdateUserToForm(user)} handleFormSubmit={handleUpdateUser} isPending={isPending} />
             <DefaultModal isOpen={isErrorModalOpen} onClose={() => setHasClosedErrorModal(true)}>
                 <Error handleCancel={() => setHasClosedErrorModal(true)}
                     message="Não foi possível cadastrar o usuário... Confira as informações, ou tente novamente mais tarde!"

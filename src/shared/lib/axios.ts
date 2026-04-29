@@ -8,7 +8,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(config => {
-    // FEATURE: veriricar o token do local storage, e retornar o config com o header de autorização.
+    // FEATURE: veriricar o token do local storage, e retornar o config com o header de autorização
     return config
 })
 

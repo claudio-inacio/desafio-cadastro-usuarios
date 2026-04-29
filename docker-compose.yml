@@ -1,0 +1,11 @@
+services:
+  users-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: https://jsonplaceholder.typicode.com
+    container_name: users-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
